@@ -38,7 +38,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, isMobile = false 
   };
 
   return (
-    <div onClick={handleCardClick} className="group cursor-pointer">
+    <div onClick={handleCardClick} className="group cursor-pointer w-full max-w-sm property-card">
       <div className="relative">
         <div className={`${isMobile ? 'aspect-[4/3]' : 'aspect-square'} w-full overflow-hidden rounded-xl bg-gray-200`}>
           <img
