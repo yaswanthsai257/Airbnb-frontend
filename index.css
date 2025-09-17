@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* For custom scrollbar in category bar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Map styles */
+.map-container {
+  position: relative;
+  z-index: 1;
+  min-height: 400px;
+}
+
+.custom-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Property popup styles */
+.leaflet-popup-content-wrapper {
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.leaflet-popup-content {
+  margin: 0;
+  padding: 0;
+  width: 250px !important;
+}
+
+.property-popup {
+  padding: 12px;
+}
+
+/* Responsive map and list styles */
+@media (max-width: 1023px) {
+  .map-container {
+    min-height: 24rem; /* h-96 equivalent */
+  }
+  
+  .leaflet-popup-content {
+    width: 200px !important;
+  }
+  
+  .property-popup {
+    padding: 8px;
+  }
+  
+  .property-popup img {
+    height: 24px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .map-container {
+    min-height: calc(100vh - 4rem); /* Full height minus header */
+  }
+}
+
+/* Smooth transitions for responsive layout */
+.map-list-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Property detail map styles */
+.property-detail-map {
+  position: relative;
+  z-index: 1;
+}
+
+.property-detail-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Property detail popup styles */
+.property-detail-popup {
+  padding: 16px;
+  min-width: 280px;
+}
+
+.property-detail-popup img {
+  border-radius: 8px;
+}
+
+/* Enhanced popup styling for property detail */
+.leaflet-popup-content-wrapper .property-detail-popup {
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}

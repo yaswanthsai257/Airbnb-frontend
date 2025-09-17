@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  # Backend API (Development)
+  backend-dev:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    container_name: airbnb-backend-dev
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=development
+      - PORT=3001
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    networks:
+      - airbnb-dev-network
+    restart: unless-stopped
+    command: npm run dev
+
+  # Frontend React App (Development)
+  frontend-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: airbnb-frontend-dev
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:3001
+    volumes:
+      - .:/app
+      - /app/node_modules
+    networks:
+      - airbnb-dev-network
+    restart: unless-stopped
+    command: npm run dev
+
+networks:
+  airbnb-dev-network:
+    driver: bridge
