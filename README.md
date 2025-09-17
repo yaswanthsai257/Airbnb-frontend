@@ -1,10 +1,9 @@
-# 🏠 Airbnb Clone - Full Stack Application
+# 🏠 Airbnb Clone - Frontend Application
 
-A modern, responsive Airbnb clone built with React, TypeScript, and Node.js. This project features a complete property listing platform with search, filtering, and interactive map functionality.
+A modern, responsive Airbnb clone frontend built with React and TypeScript. This project features a complete property listing platform with search, filtering, and interactive map functionality.
 
 ## 🌟 Features
 
-### Frontend Features
 - **🎨 Modern UI/UX**: Clean, responsive design with Tailwind CSS
 - **🔍 Advanced Search**: Location-based search with filters
 - **🗺️ Interactive Maps**: Property locations with Google Maps integration
@@ -14,20 +13,10 @@ A modern, responsive Airbnb clone built with React, TypeScript, and Node.js. Thi
 - **🏷️ Category Filtering**: Filter by property types (apartments, houses, etc.)
 - **⭐ Rating System**: Property ratings and reviews
 - **🔄 Real-time Updates**: Dynamic property loading and updates
-
-### Backend Features
-- **🚀 RESTful API**: Complete property management API
-- **🔍 Advanced Search**: Full-text search across properties
-- **📊 Pagination**: Efficient data loading with pagination
-- **🏷️ Category Management**: Dynamic category filtering
-- **📍 Location-based Search**: Geographic property filtering
-- **🔒 CORS Enabled**: Cross-origin resource sharing configured
-- **📈 Health Monitoring**: API health check endpoints
-- **🧪 Comprehensive Testing**: Full test coverage
+- **🎛️ Backend Toggle**: Switch between local and remote API endpoints
 
 ## 🛠️ Tech Stack
 
-### Frontend
 - **React 18** - Modern React with hooks
 - **TypeScript** - Type-safe development
 - **Vite** - Fast build tool and dev server
@@ -36,17 +25,9 @@ A modern, responsive Airbnb clone built with React, TypeScript, and Node.js. Thi
 - **React Context** - State management
 - **Google Maps API** - Interactive maps
 
-### Backend
-- **Node.js** - JavaScript runtime
-- **Express.js** - Web application framework
-- **CORS** - Cross-origin resource sharing
-- **Helmet** - Security middleware
-- **Morgan** - HTTP request logger
-
 ### Deployment
 - **Frontend**: Vercel
-- **Backend**: Render
-- **Database**: JSON file-based (easily extensible to MongoDB/PostgreSQL)
+- **API**: External backend service (Render)
 
 ## 🚀 Quick Start
 
@@ -55,7 +36,7 @@ A modern, responsive Airbnb clone built with React, TypeScript, and Node.js. Thi
 - npm or yarn
 - Git
 
-### Frontend Setup
+### Setup
 
 1. **Clone the repository**
    ```bash
@@ -78,27 +59,9 @@ A modern, responsive Airbnb clone built with React, TypeScript, and Node.js. Thi
    http://localhost:5173
    ```
 
-### Backend Setup
+### API Configuration
 
-1. **Navigate to backend directory**
-   ```bash
-   cd backend
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start the server**
-   ```bash
-   npm start
-   ```
-
-4. **API will be available at**
-   ```
-   http://localhost:3001
-   ```
+The frontend connects to an external API. You can toggle between different API endpoints using the backend toggle in the application.
 
 ## 📁 Project Structure
 
@@ -109,18 +72,16 @@ Airbnb-frontend/
 │   ├── PropertyCard.tsx # Property display card
 │   ├── PropertyListings.tsx # Property grid
 │   ├── Map.tsx          # Interactive map
+│   ├── BackendToggle.tsx # API endpoint toggle
 │   └── ...
 ├── services/            # API services
 │   ├── propertyService.ts
-│   └── backendPropertyService.ts
+│   └── categoryService.ts
 ├── hooks/               # Custom React hooks
 ├── context/             # React context providers
 ├── types/               # TypeScript type definitions
 ├── public/              # Static assets
-└── backend/             # Backend API server
-    ├── server.js        # Main server file
-    ├── data/            # JSON data files
-    └── routes/          # API routes
+└── __tests__/           # Frontend tests
 ```
 
 ## 🔧 Configuration
@@ -134,26 +95,9 @@ VITE_API_BASE_URL=https://airbnb-backend-sb49.onrender.com/api
 VITE_GOOGLE_MAPS_API_KEY=your_google_maps_api_key
 ```
 
-### Backend Configuration
+### API Integration
 
-The backend automatically configures CORS for:
-- `http://localhost:5173` (Vite dev server)
-- `https://airbnb-frontend-phi-ten.vercel.app` (Production)
-
-## 📱 API Endpoints
-
-### Properties
-- `GET /api/properties` - Get all properties with filtering
-- `GET /api/properties/:id` - Get property by ID
-- `GET /api/properties/search?q=term` - Search properties
-- `GET /api/properties/category/:category` - Get by category
-- `GET /api/properties/location/:location` - Get by location
-
-### Categories
-- `GET /api/categories` - Get all categories
-
-### Health
-- `GET /api/health` - API health check
+The frontend connects to an external API service. The BackendToggle component allows switching between different API endpoints for development and production use.
 
 ## 🎨 Key Components
 
@@ -175,6 +119,11 @@ The backend automatically configures CORS for:
 - Interactive zoom/pan
 - Responsive design
 
+### BackendToggle Component
+- Switch between API endpoints
+- Development and production modes
+- Real-time API switching
+
 ## 🌐 Deployment
 
 ### Frontend (Vercel)
@@ -184,24 +133,11 @@ The backend automatically configures CORS for:
    - Output Directory: `dist`
 3. Deploy automatically on push to main branch
 
-### Backend (Render)
-1. Connect your GitHub repository to Render
-2. Configure service:
-   - Build Command: `npm install`
-   - Start Command: `npm start`
-3. Set environment variables if needed
-
 ## 🧪 Testing
 
 ### Frontend Tests
 ```bash
 npm run test
-```
-
-### Backend Tests
-```bash
-cd backend
-npm test
 ```
 
 ## 📊 Performance Features
@@ -214,10 +150,9 @@ npm test
 
 ## 🔒 Security Features
 
-- **CORS Configuration**: Secure cross-origin requests
-- **Helmet.js**: Security headers
-- **Input Validation**: API input sanitization
+- **Input Validation**: Client-side input sanitization
 - **Error Handling**: Comprehensive error management
+- **Secure API Calls**: Proper error handling for API requests
 
 ## 🌍 Internationalization
 
@@ -233,7 +168,8 @@ npm test
 - [ ] Real-time chat
 - [ ] Advanced filtering options
 - [ ] Property management dashboard
-- [ ] Mobile app (React Native)
+- [ ] Progressive Web App (PWA) features
+- [ ] Offline functionality
 
 ## 🤝 Contributing
 
