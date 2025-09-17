@@ -49,7 +49,7 @@ const HomePage: React.FC = () => {
         onToggleMap={handleToggleMap}
         filters={filters}
       />
-      <main className="flex-grow w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 pt-32 sm:pt-36 md:pt-40">
+      <main className="flex-grow container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 pt-32 sm:pt-36 md:pt-40">
         <MapView 
           properties={properties} 
           isLoading={isLoading}

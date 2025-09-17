@@ -137,7 +137,7 @@ const Header: React.FC<HeaderProps> = ({ onFilterChange, showMap = false, onTogg
         </div>
         
               {/* Full search bar when not scrolled */}
-              <div className={`absolute top-24 left-1/2 -translate-x-1/2 transition-all duration-300 ${isScrolled ? 'opacity-0 scale-90 -translate-y-4 pointer-events-none' : 'opacity-100 scale-100'}`}>
+              <div className={`absolute top-24 left-1/2 transition-all duration-300 ${isScrolled ? 'opacity-0 scale-90 -translate-y-4 pointer-events-none' : 'opacity-100 scale-100'} -translate-x-[350px] md:-translate-x-[200px] sm:-translate-x-[150px]`}>
                   <div onClick={() => setIsSearchModalOpen(true)} className="w-full lg:w-[850px] bg-white border rounded-full py-2 px-4 shadow-md hover:shadow-lg transition cursor-pointer flex justify-between items-center">
                       <div className="flex-1 text-center">
                           <div className="text-sm font-semibold">{t('where')}</div>

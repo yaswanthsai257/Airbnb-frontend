@@ -32,24 +32,24 @@ const PropertyListings: React.FC<PropertyListingsProps> = ({
     if (!isMapVisible) {
       // Full width when map is not visible
       if (isMobile) {
-        return "grid grid-cols-1 gap-4";
+        return "grid grid-cols-1 gap-x-4 gap-y-6";
       } else if (isTablet) {
-        return "grid grid-cols-2 gap-4";
+        return "grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-6";
       } else {
-        return "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6";
+        return "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-6 gap-y-8";
       }
     }
     
     if (isMobile) {
       // Mobile with map: single column
-      return "grid grid-cols-1 gap-3";
+      return "grid grid-cols-1 gap-x-3 gap-y-4";
     } else if (isTablet) {
       // Tablet with map: 1-2 columns
-      return "grid grid-cols-1 sm:grid-cols-2 gap-3";
+      return "grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-4";
     }
     
     // Desktop with map: fewer columns to fit in the available space
-    return "grid grid-cols-1 sm:grid-cols-2 gap-4";
+    return "grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-6";
   };
 
   const getPaddingClasses = () => {
@@ -63,8 +63,8 @@ const PropertyListings: React.FC<PropertyListingsProps> = ({
   };
 
   return (
-    <div className={`${getPaddingClasses()} w-full`}>
-      <div className={`${getGridClasses()} w-full property-grid`}>
+    <div className={getPaddingClasses()}>
+      <div className={getGridClasses()}>
         {isLoading
           ? Array.from({ length: isMapVisible ? (isMobile ? 6 : 10) : (isMobile ? 8 : 20) }).map((_, index) => (
               <SkeletonCard key={index} />
